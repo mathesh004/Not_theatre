@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: all .3s;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: url('https://assets.nflxext.com/ffe/siteui/vlv3/76c10fc9-7ccd-4fbf-bc59-f16a468921ca/4fb4af6e-d0ca-4c7f-b004-b34226727e55/IN-en-20230529-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            position: relative;
+        }
+
+        body:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .60);
+            box-shadow: inset 0 0 20px #000, inset 0 0 80px #000;
+        }
+
+        .logo {
+            width: 180px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            filter: drop-shadow(0 0 25px #000);
+        }
+
+        form {
+            width: 350px;
+            background: rgba(0, 0, 0, .70);
+            padding: 80px 40px;
+            color: #fff;
+        }
+
+        form h3 {
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 1.8em;
+        }
+
+        form .inputbox {
+            margin: 25px 0;
+            position: relative;
+        }
+
+        form .inputbox .msg {
+            font-size: .70em;
+            margin-top: 5px;
+            color: #f00;
+        }
+
+        form .inputbox label {
+            position: absolute;
+            top: -10px;
+            right: 8px;
+            padding: 5px 15px;
+            width: auto;
+            font-size: .75em;
+            user-select: none;
+            color: #eee;
+            background: hsl(282, 98%, 50%);
+            border-radius: 20px;
+        }
+
+        form .inputbox input {
+            border: none;
+            outline: none;
+            padding: 15px 15px;
+            width: 100%;
+            font-size: 1em;
+            user-select: none;
+            outline: 2px solid hsl(282, 98%, 50%);
+            border-radius: 5px;
+            background: #111;
+            color: #fff;
+        }
+
+        form .inputbox input:focus {
+            background: #222;
+        }
+
+        form .submit {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 15px 0;
+            font-size: 1em;
+            text-transform: capitalize;
+            color: #eee;
+            background: hsl(282, 98%, 50%);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form .submit:hover {
+            background: #222;
+            box-shadow: 0 0 20px #000;
+        }
+
+        form .helpBox {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            color: #777;
+            font-size: .95em;
+        }
+
+        form .helpBox a {
+            color: #777;
+        }
+
+        form .helpBox a:hover {
+            text-decoration: underline;
+        }
+
+        form .sign {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        form .sign a {
+            color: #fff;
+        }
+
+        form .sign a:hover {
+            text-decoration: underline;
+        }
+
+        form .msg {
+            font-size: .75em;
+            color: #555;
+        }
+
+        #rem {
+            accent-color: hsl(282, 98%, 50%);
+        }
+
+        .dropdown {
+            display: none;
+            font-size: .75em;
+            color: #555;
+            border-radius: 5px;
+            margin-top: 1px;
+        }
+
+        .dropdown.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="../filmlane-master/assets/images/smalllogo.png" class="logo">
+    <form onsubmit="refresh(); return false">
+        <h3>Sign In</h3>
+        <div class="inputbox">
+            <label>Email or phone number</label>
+            <input type="text" class="email">
+            <p class="msg"></p>
+        </div>
+        <div class="inputbox">
+            <label>Password</label>
+            <input type="password" class="password">
+            <p class="msg"></p>
+        </div>
+        <input type="submit" value="sign in" class="submit">
+        <div class="helpBox">
+            <div class="checkBox">
+                <input type="checkbox" id="rem">
+                <label for="rem">Remember me</label>
+            </div>
+        </div>
+        <p class="sign">
+            New to !Theatre?
+            <br>
+            <a href="/filmlane-master/filmlane-master/welcome.html">Sign up now</a>.
+        </p>
+        <p class="msg">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="##" id="learnMore">Learn more.</a></p>
+        <div class="dropdown" id="infoDropdown">
+            The information collected by Google reCAPTCHA is subject to the Google Privacy Policy and Terms of Service, and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalised advertising by Google).
+        </div>
+    </form>
+    <i class="fa fa-youtube-play" style="font-size:1.2em;" title="youtube channel..."> <a href="https://www.youtube.com/@MR.shortzed333" target="_blank">Youtube</a></i>
+    <script>
+        let email = document.querySelector('.email');
+        let psd = document.querySelector('.password');
+        let check = document.querySelector('#rem');
+        let msg = document.querySelectorAll('.msg');
+
+        const refresh = () => {
+            if (email.value == "") {
+                msg[0].innerText = "Please enter a valid email address or phone number.";
+            }
+            if (psd.value == "") {
+                msg[1].innerText = "Your password must contain between 4 and 60 characters.";
+            } else {
+                msg[0].innerText = "";
+                msg[1].innerText = "";
+                alert('Sign-in successfully');
+            }
+
+            email.value = "";
+            psd.value = "";
+            check.checked = false;
+        }
+
+        document.getElementById('learnMore').addEventListener('click', function(event) {
+            event.preventDefault();
+            const infoDropdown = document.getElementById('infoDropdown');
+            infoDropdown.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

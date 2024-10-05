@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Page</title>
+    <link rel="shortcut icon" href="./assets/images/smalllogo.png" type="image/svg+xml">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+  
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" data-header>
+        <div class="container">
+            <div class="overlay" data-overlay></div>
+
+            <a href="./index.html" class="logo">
+                <img src="./assets/images/smalllogo.png" alt="Filmlane logo" height="100px" width="200">
+            </a>
+
+            <div class="header-actions">
+                <button class="search-btn">
+                    <ion-icon name="search-outline"></ion-icon>
+                </button>
+                              <!-- Hidden Search Bar -->
+             <!-- Hidden Search Bar -->
+<div class="search-bar" id="search-bar">
+    <form action="search-results.html" method="GET">
+      <input type="text" placeholder="Search for a movie" id="search-input" name="query" required>
+      <button type="submit">Search</button>
+      <button class="search-close-btn" id="search-close-btn">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+    </form>
+  </div>
+  
+
+                <div class="lang-wrapper">
+                    <label for="language">
+                        <ion-icon name="globe-outline"></ion-icon>
+                    </label>
+                    <select name="language" id="language">
+                        <option value="en">EN</option>
+                        <option value="au">AU</option>
+                        <option value="ar">AR</option>
+                        <option value="tu">TU</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary">Sign in</button>
+            </div>
+
+            <button class="menu-open-btn" data-menu-open-btn>
+                <ion-icon name="reorder-two"></ion-icon>
+            </button>
+
+            <nav class="navbar" data-navbar>
+                <div class="navbar-top">
+                    <a href="./index.html" class="logo">
+                        <img src="./assets/images/logo.svg" alt="Filmlane logo">
+                    </a>
+                    <button class="menu-close-btn" data-menu-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+                </div>
+
+                <ul class="navbar-list">
+                    <li><a href="./index.html" class="navbar-link">Home</a></li>
+                    <li><a href="./movies.html" class="navbar-link">Movie</a></li>
+                    <li><a href="./webseries.html" class="navbar-link">Web Series</a></li>
+                </ul>
+
+                <ul class="navbar-social-list">
+                    <li><a href="#" class="navbar-social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#" class="navbar-social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#" class="navbar-social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+                    <li><a href="#" class="navbar-social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#" class="navbar-social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                </ul>
+            </nav>
+        </div>
+        
+    </header>
+
+    <main>
+        <br><br><br><br><br>
+
+        <h1 style="color:white">Categories</h1>
+        <h2 style="color:white">Genres</h2>
+
+        <div class="category-container">
+            <div class="category-card">Action and adventure</div>
+            <div class="category-card">Anime</div>
+            <div class="category-card">Comedy</div>
+            <div class="category-card">Documentary</div>
+            <div class="category-card">Drama</div>
+            <div class="category-card">Fantasy</div>
+            <div class="category-card">Horror</div>
+            <div class="category-card">Kids</div>
+            <div class="category-card">Mystery and thrillers</div>
+            <div class="category-card">Romance</div>
+            <div class="category-card">Science fiction</div>
+        </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

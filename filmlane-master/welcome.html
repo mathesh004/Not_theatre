@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../filmlane-master/assets/images/loginbg.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(3px); /* Adjust the value to get the desired level of blur */
+    z-index: -1;
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: rgb(254, 254, 254);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .language-selection {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-selection select {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .content h1, .content h2, .content p {
+            margin: 10px 0;
+        }
+
+        .restart-button {
+            background-color: hsl(282, 97%, 45%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .email
+        {
+            padding: 15px 30px;
+            border: 1px solid  hsl(282, 98%, 50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            cursor: pointer;
+            margin-right: 30px;
+            color:white;
+        }
+        .logo {
+            width: 250px;
+            height:200px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            filter: drop-shadow(0 0 25px #000);
+        }
+
+        .restart-button:hover {
+            background-color: hsl(282, 98%, 50%);
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="container">
+        <img src="../filmlane-master/assets/images/smalllogo.png" class="logo">
+
+        <div class="language-selection">
+            <select id="language-select" style="background-color: hsl(282, 97%, 45%);color: white;">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="ta">Tamil</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="zh">Chinese</option>
+                <option value="ja">Japanese</option>
+                <option value="ru">Russian</option>
+                <option value="ko">Korean</option>
+                <option value="it">Italian</option>
+                <option value="pt">Portuguese</option>
+                <option value="ar">Arabic</option>
+                <option value="bn">Bengali</option>
+                <option value="pa">Punjabi</option>
+                <option value="mr">Marathi</option>
+                <option value="gu">Gujarati</option>
+                <option value="kn">Kannada</option>
+                <option value="ml">Malayalam</option>
+                <option value="te">Telugu</option>
+            </select>
+        </div>
+        <div class="content">
+            <b><h1 class="welcome-text" id="welcome-text" style="-webkit-text-stroke: 1px rgba(149, 0, 255,0.4) ">Welcome back!</h1></b>
+            <h1 class="subtitle" id="subtitle" style="-webkit-text-stroke: 1px rgba(149, 0, 255,0.5)" >Unlimited movies, TV shows and more</h1>
+            <h2 class="description" id="description" style="-webkit-text-stroke: 1px rgba(149, 0, 255,0.5)">Watch anywhere. Cancel anytime.</h2>
+            <br>
+            <h2 style="-webkit-text-stroke: 1px rgba(149, 0, 255,0.5)">
+                Ready to watch? Enter your email to create or restart your membership.
+            </h2>
+            
+            <br>
+            <input type="text" class="email" placeholder="Email address">
+            <button class="restart-button" id="restart-button">GET READY ➤</button>
+            <h4 style="color: white;"> 
+                <a href="/filmlane-master/filmlane-master/login.html" style="color: white;">Already a member? Sign in</a> 
+            </h4>
+            
+           
+
+        </div>
+    </div>
+    <script>
+        const translations = {
+            en: {
+                welcome: "Welcome back!",
+                subtitle: "Unlimited movies, TV shows and more",
+                description: "Watch anywhere. Cancel anytime.",
+                button: "Restart Your Membership"
+            },
+            hi: {
+                welcome: "वापसी पर स्वागत है!",
+                subtitle: "असीमित फिल्में, टीवी शो और अधिक",
+                description: "कहीं भी देखें। कभी भी रद्द करें।",
+                button: "अपनी सदस्यता पुनः प्रारंभ करें"
+            },
+            ta: {
+                welcome: "திரும்ப வருக",
+                subtitle: "வரையறுக்கப்படாத திரைப்படங்கள், டிவி நிகழ்ச்சிகள் மற்றும் பல",
+                description: "எங்கும் பார்க்கலாம். எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்.",
+                button: "உங்கள் உறுப்பினர்ச் சந்தாவை மறுபடியும் தொடங்குங்கள்"
+            },
+            es: {
+                welcome: "¡Bienvenido de nuevo!",
+                subtitle: "Películas, programas de TV y más ilimitados",
+                description: "Mira en cualquier lugar. Cancela en cualquier momento.",
+                button: "Reinicia tu membresía"
+            },
+            fr: {
+                welcome: "Bon retour!",
+                subtitle: "Films, séries TV et plus encore en illimité",
+                description: "Regardez n'importe où. Annulez à tout moment.",
+                button: "Redémarrez votre abonnement"
+            },
+            de: {
+                welcome: "Willkommen zurück!",
+                subtitle: "Unbegrenzte Filme, TV-Sendungen und mehr",
+                description: "Überall ansehen. Jederzeit kündigen.",
+                button: "Mitgliedschaft erneut starten"
+            },
+            zh: {
+                welcome: "欢迎回来！",
+                subtitle: "无限的电影、电视节目等",
+                description: "随时随地观看。 随时取消。",
+                button: "重新启动您的会员资格"
+            },
+            ja: {
+                welcome: "お帰りなさい！",
+                subtitle: "無制限の映画、テレビ番組など",
+                description: "どこでも見れます。いつでもキャンセルできます。",
+                button: "メンバーシップを再開する"
+            },
+            ru: {
+                welcome: "Добро пожаловать назад!",
+                subtitle: "Безлимитные фильмы, телешоу и многое другое",
+                description: "Смотрите в любом месте. Отмените в любое время.",
+                button: "Возобновить членство"
+            },
+            ko: {
+                welcome: "다시 오신 것을 환영합니다!",
+                subtitle: "무제한 영화, TV 쇼 및 기타",
+                description: "어디서나 시청하세요. 언제든지 취소하세요.",
+                button: "멤버십 재시작"
+            },
+            it: {
+                welcome: "Bentornato!",
+                subtitle: "Film, programmi TV e altro ancora illimitati",
+                description: "Guarda ovunque. Annulla in qualsiasi momento.",
+                button: "Riavvia il tuo abbonamento"
+            },
+            pt: {
+                welcome: "Bem vindo de volta!",
+                subtitle: "Filmes, programas de TV e mais ilimitados",
+                description: "Assista em qualquer lugar. Cancele a qualquer momento.",
+                button: "Reinicie sua assinatura"
+            },
+            ar: {
+                welcome: "مرحبًا بعودتك!",
+                subtitle: "أفلام غير محدودة ، برامج تلفزيونية والمزيد",
+                description: "شاهد في أي مكان. إلغاء في أي وقت.",
+                button: "أعد بدء عضويتك"
+            },
+            bn: {
+                welcome: "ফিরে আসার জন্য স্বাগতম!",
+                subtitle: "অসীম চলচ্চিত্র, টিভি শো এবং আরও অনেক কিছু",
+                description: "যেকোনো জায়গায় দেখুন। যে কোনও সময় বাতিল করুন।",
+                button: "আপনার সদস্যপদ পুনরায় শুরু করুন"
+            },
+            pa: {
+                welcome: "ਵਾਪਸ ਆਉਣ 'ਤੇ ਸੁਆਗਤ ਹੈ!",
+                subtitle: "ਅਸীমਤ ਫਿਲਮਾਂ, ਟੀਵੀ ਸ਼ੋਅ ਅਤੇ ਹੋਰ ਕੁਝ",
+                description: "ਕਿਤੇ ਵੀ ਦੇਖੋ। ਕਿਸੇ ਵੀ ਸਮੇਂ ਰੱਦ ਕਰੋ।",
+                button: "ਆਪਣੀ ਮੈਂਬਰਸ਼ਿਪ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ"
+            },
+            mr: {
+                welcome: "परत येण्यास स्वागत आहे!",
+                subtitle: "अमर्यादित चित्रपट, टीव्ही शो आणि बरेच काही",
+                description: "कोठेही पहा. कधीही रद्द करा.",
+                button: "आपले सदस्यत्व पुन्हा प्रारंभ करा"
+            },
+            gu: {
+                welcome: "પરત આવવા માટે આપનું સ્વાગત છે!",
+                subtitle: "અસીમિત ફિલ્મો, ટીવી શો અને વધુ",
+                description: "ક્યાંય પણ જુઓ. ક્યારે પણ રદ કરો.",
+                button: "તમારું સભ્યપદ ફરી શરૂ કરો"
+            },
+            kn: {
+                welcome: "ಮತ್ತೆ ಬರುವುದಕ್ಕೆ ಸ್ವಾಗತ!",
+                subtitle: "ಅಸೀಮಿತ ಚಲನಚಿತ್ರಗಳು, ಟಿವಿ ಶೋಗಳು ಮತ್ತು ಇನ್ನಷ್ಟು",
+                description: "ಎಲ್ಲಿಂದಲಾದರೂ ವೀಕ್ಷಿಸಿ. ಯಾವಾಗ ಬೇಕಾದರೂ ರದ್ದುಮಾಡಿ.",
+                button: "ನಿಮ್ಮ ಸದಸ್ಯತ್ವವನ್ನು ಮರು ಪ್ರಾರಂಭಿಸಿ"
+            },
+            ml: {
+                welcome: "മടങ്ങിയെത്തുന്നതിന് സ്വാഗതം!",
+                subtitle: "അപരിമിതമായ ചിത്രങ്ങൾ, ടിവി ഷോകൾ തുടങ്ങിയവ",
+                description: "എവിടെ വേണമെങ്കിലും കാണാം. എപ്പോഴും റദ്ദാക്കാം.",
+                button: "നിങ്ങളുടെ അംഗത്വം പുനരാരംഭിക്കുക"
+            },
+            te: {
+                welcome: "తిరిగి స్వాగతం!",
+                subtitle: "అనంతమైన సినిమాలు, టీవీ షోలు మరియు మరిన్నివి",
+                description: "ఎక్కడైనా చూడండి. ఎప్పుడైనా రద్దు చేయండి.",
+                button: "మీ సభ్యత్వాన్ని పునఃప్రారంభించండి"
+            }
+        };
+
+        document.getElementById('language-select').addEventListener('change', function() {
+            const selectedLang = this.value;
+            document.getElementById('welcome-text').textContent = translations[selectedLang].welcome;
+            document.getElementById('subtitle').textContent = translations[selectedLang].subtitle;
+            document.getElementById('description').textContent = translations[selectedLang].description;
+            document.getElementById('restart-button').textContent = translations[selectedLang].button;
+        });
+    </script>
+</body>
+</html>

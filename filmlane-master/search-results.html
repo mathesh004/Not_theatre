@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header section (copied from index.html) -->
+    <header class="header" data-header>
+        <div class="container">
+            <div class="overlay" data-overlay></div>
+            <a href="./index.html" class="logo">
+                <img src="./assets/images/smalllogo.png" alt="Filmlane logo" height="100px" width="200">
+            </a>
+            <div class="header-actions">
+                <button class="search-btn">
+                    <ion-icon name="search-outline"></ion-icon>
+                </button>
+                <div class="lang-wrapper">
+                    <label for="language">
+                        <ion-icon name="globe-outline"></ion-icon>
+                    </label>
+                    <select name="language" id="language">
+                        <option value="en">EN</option>
+                        <option value="au">AU</option>
+                        <option value="ar">AR</option>
+                        <option value="tu">TU</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">Sign in</button>
+            </div>
+            <button class="menu-open-btn" data-menu-open-btn>
+                <ion-icon name="reorder-two"></ion-icon>
+            </button>
+            <nav class="navbar" data-navbar>
+                <ul class="navbar-list">
+                    <li><a href="./index.html" class="navbar-link">Home</a></li>
+                    <li><a href="./movies.html" class="navbar-link">Movie</a></li>
+                    <li><a href="./webseries.html" class="navbar-link">Web Series</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <section class="search-results-section">
+            <div class="container">
+                <h2>Search Results</h2>
+                <div id="search-results"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript to display search results -->
+    <script>
+        // Get search query from URL
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get('query').toLowerCase();
+
+        // Sample movie data (replace with your actual movie data or fetch from a database)
+        const movies = [
+            { title: "Sonic the Hedgehog 2", year: "2022", image: "./assets/images/movie-1.png", rating: "7.8" },
+            { title: "Morbius", year: "2022", image: "./assets/images/movie-2.png", rating: "5.9" },
+            { title: "The Batman", year: "2022", image: "./assets/images/movie-5.png", rating: "7.9" }
+        ];
+
+        // Find the movie that matches the query
+        const results = movies.filter(movie => movie.title.toLowerCase().includes(query));
+
+        // Display results
+        const resultsContainer = document.getElementById('search-results');
+        if (results.length > 0) {
+            results.forEach(movie => {
+                resultsContainer.innerHTML += `
+                    <div class="movie-card">
+                        <figure class="card-banner">
+                            <img src="${movie.image}" alt="${movie.title} poster">
+                        </figure>
+                        <div class="title-wrapper">
+                            <h3 class="card-title">${movie.title}</h3>
+                            <time datetime="${movie.year}">${movie.year}</time>
+                        </div>
+                        <div class="card-meta">
+                            <div class="rating">
+                                <ion-icon name="star"></ion-icon>
+                                <data>${movie.rating}</data>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        } else {
+            resultsContainer.innerHTML = `<p>No results found for "${query}".</p>`;
+        }
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
